@@ -32,9 +32,7 @@ print("=" * 80)
 print("Small Sample Classification - PCA + Multiple Models + Training Accuracy")
 print("=" * 80)
 
-# ================================
 # 1. Data Loading and Preprocessing
-# ================================
 print("\n[Step 1] Data Loading and Preprocessing...")
 
 # Read data, skip first row comment
@@ -68,18 +66,15 @@ if len(constant_cols) > 0:
 
 print(f"Number of features after preprocessing: {X.shape[1]}")
 
-# ================================
 # 2. Feature Standardization
-# ================================
 print("\n[Step 2] Feature Standardization...")
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 feature_names = X.columns.tolist()
 
 print(f"  Standardization completed: {X_scaled.shape}")
-# ================================
+
 # 3. PCA Dimensionality Reduction
-# ================================
 print("\n[Step 3] PCA Dimensionality Reduction Analysis...")
 
 # First check variance explained ratio for different number of components
@@ -143,9 +138,7 @@ pca_dimensions = sorted(list(set([d for d in pca_dimensions if d <= X_scaled.sha
 
 print(f"\nWill test the following PCA dimensions: {pca_dimensions}")
 
-# ================================
 # 4. Model Training and Evaluation (Training Accuracy)
-# ================================
 print("\n[Step 4] Model Training and Evaluation (using Training Accuracy)...")
 
 results = []
@@ -348,12 +341,11 @@ for n_comp in pca_dimensions:
             print(f"  Warning: {config['name']} failed with error: {str(e)}")
             continue
 
-# ================================
+
 # 5. Results Save
-# ================================
 print("\n" + "=" * 80)
 print("[Step 5] Results Save")
-print("=" * 80)
+print("\n" + "=" * 80)
 
 top5_models_df= pd.DataFrame(top5_models)
 top5_models_df = top5_models_df.sort_values('accuracy', ascending=False)
