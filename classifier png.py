@@ -27,9 +27,8 @@ print("Small Sample Classification - PCA + Multiple Models + Training Accuracy")
 print("=" * 80)
 plt.rcParams["font.family"] = "Arial"
 
-# ================================
+
 # 1.Data Loading and Preprocessing
-# ================================
 print("\n[Step 1] Data Loading and Preprocessing...")
 
 # Read data, skip first row comment
@@ -73,17 +72,13 @@ print(f"F1-score: {best_result['F1_Score']:.4f}")
 print(f"Kappa coefficient: {best_result['Kappa']:.4f}")
 print(f"Best parameters: {best_result['Best_Params']}")
 
-# ================================
 # 2.Feature Standardization
-# ================================
 print("\n[Step 2] Feature Standardization...")
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 feature_names = X.columns.tolist()
 
-# ================================
 # 3.Visualization
-# ================================
 print("\n[Step 3] Generating visualizations...")
 
 print("\n" + "=" * 80)
